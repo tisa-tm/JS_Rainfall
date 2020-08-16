@@ -1,7 +1,6 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var particlesOnScreen = 70;
-// var n = ;
 var particlesArray = [];
 var w,h;
 w = canvas.width = window.innerWidth;
@@ -44,21 +43,11 @@ function drawRainfall(){
     }
 };
 
-
-//     var tempx = particlesArray[i].x;
-    //     var tempy = particlesArray[i].y;
-    //     for(j = 0; j < 200; j++){
-    //         tempy = tempy + Math.random() * w;
-    //         ctx.drawImage(img, tempx, tempy,20,20);               
-    //     }
-
 function moveRainfall(){
-    for (var i = 0; i < particlesArray.length; i++) {
-        // particlesArray[i].x += particlesArray[i].speedX;     
+    for (var i = 0; i < particlesArray.length; i++) {   
         particlesArray[i].y += particlesArray[i].speedY;     
 
         if (particlesArray[i].y > h) {                                                                               
-            // particlesArray[i].x = Math.random() * w * 1.5;
             particlesArray[i].y = 0;
         }
     }
@@ -70,6 +59,20 @@ function updateRainfall(){
     moveRainfall();
 };
 
+// function playMusic(){
+//     src = "rainfall.mp3";
+//     audio = new Audio(src);
+//     audio.play();
+// }
+
+ window.onload=function(){
+      document.getElementById("music").play();
+    }
+
+// function playMusic(){
+//     document.getElementById("music").play();
+// }
 
 setInterval(updateRainfall,30);
 createRainfall();
+// playMusic();
